@@ -10,9 +10,11 @@ import { View } from "../types";
 interface SidebarProps {
   currentView: View;
   onViewChange: (view: View) => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange, isOpen, onClose }) => {
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
     { id: "ventas", label: "Ventas", icon: ShoppingCart },
@@ -25,7 +27,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange }) =
   ];
 
   return (
-    <aside className="w-64 bg-[#0f172a] text-slate-300 flex flex-col h-screen fixed left-0 top-0 z-50">
+    <aside className={`w-64 bg-[#0f172a] text-slate-300 flex flex-col h-screen fixed left-0 top-0 z-50 transition-transform duration-300 lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
       {/* Logo Section */}
       <div className="p-6 flex items-center gap-3">
         <div className="bg-emerald-500 p-2 rounded-lg">

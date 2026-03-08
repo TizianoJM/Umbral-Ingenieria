@@ -27,10 +27,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
           exit={{ opacity: 0, scale: 0.95 }}
           className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col"
         >
-          <header className="flex items-center justify-between px-8 py-6 border-b border-slate-100">
-            <h2 className="text-xl font-bold text-slate-800">{title}</h2>
+          <header className="flex items-center justify-between px-6 md:px-8 py-4 md:py-6 border-b border-slate-100">
+            <h2 className="text-lg md:text-xl font-bold text-slate-800">{title}</h2>
             <button onClick={onClose} className="text-slate-400 hover:text-slate-600 transition-colors">
-              <X className="h-6 w-6" />
+              <X className="h-5 w-5 md:h-6 md:w-6" />
             </button>
           </header>
           <div className="overflow-y-auto max-h-[80vh]">
@@ -53,7 +53,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, pro
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={isEdit ? "Editar Producto" : "Nuevo Producto"}>
-      <form className="p-8 space-y-6">
+      <form className="p-4 md:p-8 space-y-4 md:space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
           <div className="flex flex-col">
             <label className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">Nombre del Producto</label>
@@ -125,9 +125,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, pro
           </div>
         </div>
 
-        <div className="bg-slate-50 border border-slate-100 rounded-xl p-6">
+        <div className="bg-slate-50 border border-slate-100 rounded-xl p-4 md:p-6">
           <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Precios</h3>
-          <div className="grid grid-cols-2 gap-x-6 gap-y-4">
+          <div className="grid grid-cols-2 gap-x-4 md:gap-x-6 gap-y-4">
             <div className="flex flex-col">
               <label className="text-[10px] font-bold text-slate-400 mb-1 uppercase">Costo</label>
               <input
@@ -163,17 +163,17 @@ export const ProductModal: React.FC<ProductModalProps> = ({ isOpen, onClose, pro
           </div>
         </div>
 
-        <footer className="flex justify-end gap-4 pt-4">
+        <footer className="flex flex-col-reverse md:flex-row justify-end gap-3 md:gap-4 pt-4">
           <button
             type="button"
             onClick={onClose}
-            className="px-8 py-2.5 border border-slate-200 rounded-xl text-slate-600 font-medium hover:bg-slate-50 transition-colors"
+            className="w-full md:w-auto px-8 py-2.5 border border-slate-200 rounded-xl text-slate-600 font-medium hover:bg-slate-50 transition-colors"
           >
             Cancelar
           </button>
           <button
             type="submit"
-            className="flex items-center gap-2 px-8 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl transition-colors shadow-sm"
+            className="w-full md:w-auto flex items-center justify-center gap-2 px-8 py-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl transition-colors shadow-sm"
           >
             <Save className="h-5 w-5" />
             Guardar
@@ -192,7 +192,7 @@ interface MassiveUpdateModalProps {
 export const MassiveUpdateModal: React.FC<MassiveUpdateModalProps> = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title="Actualización Masiva de Precios">
-      <div className="p-8 space-y-6">
+      <div className="p-4 md:p-8 space-y-4 md:space-y-6">
         <div className="flex items-center gap-3 mb-2">
           <TrendingUp className="w-6 h-6 text-slate-700" />
           <p className="text-slate-600 text-sm">Ajusta los precios de múltiples productos a la vez.</p>
@@ -235,14 +235,14 @@ export const MassiveUpdateModal: React.FC<MassiveUpdateModalProps> = ({ isOpen, 
           </div>
         </div>
 
-        <footer className="flex justify-end gap-3 pt-6">
+        <footer className="flex flex-col-reverse md:flex-row justify-end gap-3 pt-6">
           <button
             onClick={onClose}
-            className="px-6 py-2.5 rounded-lg border border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50 transition-colors"
+            className="w-full md:w-auto px-6 py-2.5 rounded-lg border border-slate-200 text-slate-600 font-semibold text-sm hover:bg-slate-50 transition-colors"
           >
             Cancelar
           </button>
-          <button className="px-6 py-2.5 rounded-lg bg-emerald-500 text-white font-bold text-sm hover:bg-emerald-600 transition-colors shadow-sm">
+          <button className="w-full md:w-auto px-6 py-2.5 rounded-lg bg-emerald-500 text-white font-bold text-sm hover:bg-emerald-600 transition-colors shadow-sm">
             Aplicar Actualización
           </button>
         </footer>

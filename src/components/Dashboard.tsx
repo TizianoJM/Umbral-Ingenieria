@@ -41,11 +41,11 @@ export const Dashboard: React.FC = () => {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="p-8 space-y-8"
+      className="p-4 md:p-8 space-y-6 md:space-y-8"
     >
       <header>
-        <h2 className="text-3xl font-bold text-slate-800">Dashboard</h2>
-        <p className="text-slate-500 mt-1">Resumen de indicadores clave</p>
+        <h2 className="text-2xl md:text-3xl font-bold text-slate-800">Dashboard</h2>
+        <p className="text-slate-500 mt-1 text-sm md:text-base">Resumen de indicadores clave</p>
       </header>
 
       {/* Metrics Row */}
@@ -70,19 +70,19 @@ export const Dashboard: React.FC = () => {
 
       {/* Detailed Breakdown Placeholder */}
       <section>
-        <div className="bg-[#111c2d] text-white p-8 rounded-3xl shadow-lg">
-          <h3 className="text-slate-400 text-sm font-medium mb-2 uppercase tracking-wider">Resumen de Facturación</h3>
-          <div className="text-6xl font-black text-blue-400 mb-8 tracking-tight">$ 448.825</div>
+        <div className="bg-[#111c2d] text-white p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-lg">
+          <h3 className="text-slate-400 text-xs md:text-sm font-medium mb-2 uppercase tracking-wider">Resumen de Facturación</h3>
+          <div className="text-4xl md:text-6xl font-black text-blue-400 mb-6 md:mb-8 tracking-tight">$ 448.825</div>
           
           {/* Breakdown Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-slate-700">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 pt-6 md:pt-8 border-t border-slate-700">
             <div>
-              <p className="text-slate-400 text-xs uppercase font-bold tracking-wider mb-2">IVA Estimado (21%)</p>
-              <p className="text-2xl font-bold text-amber-400">$ 77.895</p>
+              <p className="text-slate-400 text-[10px] md:text-xs uppercase font-bold tracking-wider mb-1 md:mb-2">IVA Estimado (21%)</p>
+              <p className="text-xl md:text-2xl font-bold text-amber-400">$ 77.895</p>
             </div>
             <div>
-              <p className="text-slate-400 text-xs uppercase font-bold tracking-wider mb-2">Ventas Netas (Sin IVA)</p>
-              <p className="text-2xl font-bold text-emerald-400">$ 370.930</p>
+              <p className="text-slate-400 text-[10px] md:text-xs uppercase font-bold tracking-wider mb-1 md:mb-2">Ventas Netas (Sin IVA)</p>
+              <p className="text-xl md:text-2xl font-bold text-emerald-400">$ 370.930</p>
             </div>
           </div>
         </div>

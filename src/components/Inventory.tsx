@@ -24,31 +24,31 @@ export const Inventory: React.FC<InventoryProps> = ({ products, onNewProduct, on
       className="flex flex-col h-full bg-white"
     >
       {/* Header */}
-      <header className="px-8 py-6 flex items-center justify-between border-b border-slate-100">
+      <header className="px-4 md:px-8 py-4 md:py-6 flex flex-col md:flex-row md:items-center justify-between border-b border-slate-100 gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-slate-800">Inventario</h2>
-          <p className="text-sm text-slate-500 mt-1">{products.length} productos · Stock con decimales</p>
+          <h2 className="text-xl md:text-2xl font-bold text-slate-800">Inventario</h2>
+          <p className="text-xs md:text-sm text-slate-500 mt-1">{products.length} productos · Stock con decimales</p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex gap-2 md:gap-3">
           <button
             onClick={onMassiveUpdate}
-            className="px-4 py-2 border border-slate-200 text-slate-700 text-sm font-semibold rounded-lg flex items-center gap-2 hover:bg-slate-50 transition-colors"
+            className="flex-1 md:flex-none px-3 md:px-4 py-2 border border-slate-200 text-slate-700 text-xs md:text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-slate-50 transition-colors"
           >
-            <TrendingUp className="h-4 w-4" />
+            <TrendingUp className="h-3.5 md:h-4 w-3.5 md:h-4" />
             Ajuste Masivo
           </button>
           <button
             onClick={onNewProduct}
-            className="px-4 py-2 bg-emerald-500 text-white text-sm font-semibold rounded-lg flex items-center gap-2 hover:bg-emerald-600 shadow-sm transition-colors"
+            className="flex-1 md:flex-none px-3 md:px-4 py-2 bg-emerald-500 text-white text-xs md:text-sm font-semibold rounded-lg flex items-center justify-center gap-2 hover:bg-emerald-600 shadow-sm transition-colors"
           >
-            <Plus className="h-4 w-4" />
+            <Plus className="h-3.5 md:h-4 w-3.5 md:h-4" />
             Nuevo Producto
           </button>
         </div>
       </header>
 
       {/* Search and Filters */}
-      <section className="px-8 py-4 bg-slate-50/50 flex gap-4 items-center">
+      <section className="px-4 md:px-8 py-4 bg-slate-50/50 flex flex-col md:flex-row gap-4 items-stretch md:items-center">
         <div className="relative flex-1">
           <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
             <Search className="h-4 w-4" />
@@ -60,11 +60,11 @@ export const Inventory: React.FC<InventoryProps> = ({ products, onNewProduct, on
           />
         </div>
         <div className="flex gap-2">
-          <button className="p-2 border border-slate-200 rounded-lg bg-white text-slate-500 hover:text-slate-700 transition-colors">
+          <button className="flex-1 md:flex-none p-2 border border-slate-200 rounded-lg bg-white text-slate-500 hover:text-slate-700 transition-colors flex items-center justify-center">
             <Filter className="h-5 w-5" />
           </button>
-          <div className="relative">
-            <select className="border border-slate-200 rounded-lg bg-white text-sm text-slate-700 focus:ring-emerald-500 focus:border-emerald-500 px-4 py-2 pr-10 appearance-none outline-none">
+          <div className="relative flex-1 md:flex-none">
+            <select className="w-full border border-slate-200 rounded-lg bg-white text-sm text-slate-700 focus:ring-emerald-500 focus:border-emerald-500 px-4 py-2 pr-10 appearance-none outline-none">
               <option>Todas las categorías</option>
               <option>Cables</option>
               <option>Iluminación</option>
@@ -75,7 +75,7 @@ export const Inventory: React.FC<InventoryProps> = ({ products, onNewProduct, on
       </section>
 
       {/* Table Section */}
-      <section className="flex-1 overflow-auto px-8 py-4">
+      <section className="flex-1 overflow-auto px-4 md:px-8 py-4">
         <table className="w-full text-left border-collapse min-w-[1000px]">
           <thead>
             <tr className="bg-slate-50 text-[11px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100">

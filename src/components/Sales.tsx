@@ -347,19 +347,19 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
       className="flex flex-col h-full overflow-hidden"
     >
       {/* Header */}
-      <header className="bg-white border-b border-slate-200 p-6">
+      <header className="bg-white border-b border-slate-200 p-4 md:p-6">
         <div className="max-w-7xl mx-auto flex flex-col gap-4">
           <div className="flex justify-between items-end">
             <div className="flex flex-col gap-1">
-              <h2 className="text-3xl font-bold tracking-tight text-slate-800">Ventas</h2>
-              <p className="text-slate-500 text-sm">Punto de venta y facturación ARCA</p>
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-slate-800">Ventas</h2>
+              <p className="text-slate-500 text-xs md:text-sm">Punto de venta y facturación ARCA</p>
             </div>
           </div>
           {/* Tabs */}
-          <div className="flex gap-8 border-b border-slate-200 -mb-6">
+          <div className="flex gap-4 md:gap-8 border-b border-slate-200 -mb-4 md:-mb-6">
             <button
               onClick={() => setActiveTab("nueva")}
-              className={`pb-4 text-sm font-bold transition-all duration-200 ${
+              className={`pb-3 md:pb-4 text-xs md:text-sm font-bold transition-all duration-200 ${
                 activeTab === "nueva" ? "border-b-2 border-emerald-500 text-emerald-500" : "text-slate-400 hover:text-slate-600"
               }`}
             >
@@ -367,7 +367,7 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
             </button>
             <button
               onClick={() => setActiveTab("historial")}
-              className={`pb-4 text-sm font-bold transition-all duration-200 ${
+              className={`pb-3 md:pb-4 text-xs md:text-sm font-bold transition-all duration-200 ${
                 activeTab === "historial" ? "border-b-2 border-emerald-500 text-emerald-500" : "text-slate-400 hover:text-slate-600"
               }`}
             >
@@ -378,11 +378,11 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
       </header>
 
       {/* Content Area */}
-      <div className="flex-1 overflow-y-auto p-6 bg-slate-50">
+      <div className="flex-1 overflow-y-auto p-4 md:p-6 bg-slate-50">
         {activeTab === "nueva" ? (
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 h-full min-h-0">
             {/* Left Column: Search & Client */}
-            <div className="lg:col-span-7 flex flex-col gap-6 overflow-y-auto pr-2 custom-scrollbar">
+            <div className="lg:col-span-7 flex flex-col gap-6 lg:overflow-y-auto lg:pr-2 custom-scrollbar">
               {/* Search Bar Container */}
               <div className="relative z-20">
                 <div className={`bg-white rounded-xl p-4 shadow-sm border transition-all duration-200 ${showResults ? 'border-emerald-500 ring-1 ring-emerald-500' : 'border-slate-200'}`}>
@@ -505,13 +505,13 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
                   ) : (
                     <div className="space-y-4">
                       {cart.map((item) => (
-                        <div key={item.product.id} className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100 group">
+                        <div key={item.product.id} className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100 group gap-4">
                           <div className="flex flex-col">
                             <span className="text-sm font-bold text-slate-800">{item.product.name}</span>
                             <span className="text-[11px] text-slate-500 font-mono">{item.product.code}</span>
                           </div>
                           
-                          <div className="flex items-center gap-6">
+                          <div className="flex items-center justify-between md:justify-end gap-4 md:gap-6">
                             <div className="flex items-center gap-3">
                               <button 
                                 onClick={() => updateQuantity(item.product.id, -1)}
@@ -670,8 +670,8 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
         ) : (
           <div className="max-w-7xl mx-auto space-y-6">
             {/* Filters/Actions Row */}
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div className="flex items-center gap-4 flex-1 max-w-2xl">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="flex flex-col md:flex-row md:items-center gap-4 flex-1 w-full md:max-w-2xl">
                 <div className="flex items-center gap-3 bg-white border border-slate-200 px-3 py-2 rounded-lg flex-1 shadow-sm">
                   <Search className="h-5 w-5 text-slate-400" />
                   <input
@@ -682,7 +682,7 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
                     onChange={handleHistorySearch}
                   />
                 </div>
-                <div className="flex items-center gap-2 bg-white border border-slate-200 px-3 py-2 rounded-lg shadow-sm min-w-[180px]">
+                <div className="flex items-center gap-2 bg-white border border-slate-200 px-3 py-2 rounded-lg shadow-sm w-full md:min-w-[180px]">
                   <Calendar className="h-4 w-4 text-slate-400" />
                   <input
                     type="date"
@@ -706,8 +706,8 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
                   )}
                 </div>
               </div>
-              <div className="flex items-center gap-2">
-                <button className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-colors shadow-sm">
+              <div className="flex items-center gap-2 w-full md:w-auto">
+                <button className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-medium hover:bg-slate-50 transition-colors shadow-sm">
                   <Download className="h-4 w-4" />
                   Exportar Excel
                 </button>
@@ -716,7 +716,7 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
             {/* Sales Table */}
             <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
               <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
+                <table className="w-full text-left border-collapse min-w-[1000px]">
                   <thead>
                     <tr className="bg-slate-50 border-b border-slate-200">
                       <th className="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">#</th>
@@ -868,10 +868,10 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
               exit={{ opacity: 0, scale: 0.95 }}
               className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden max-h-[90vh] flex flex-col"
             >
-              <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50 shrink-0">
+              <div className="p-4 md:p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50 shrink-0">
                 <div className="flex items-center gap-2">
                   <Edit className="text-emerald-500 h-5 w-5" />
-                  <h3 className="text-xl font-bold text-slate-800">Editar Venta #{editingSale.id}</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-slate-800">Editar Venta #{editingSale.id}</h3>
                 </div>
                 <button 
                   onClick={() => setEditingSale(null)}
@@ -881,9 +881,9 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
                 </button>
               </div>
 
-              <div className="overflow-y-auto flex-1 p-6 space-y-6">
+              <div className="overflow-y-auto flex-1 p-4 md:p-6 space-y-6">
                 <form onSubmit={handleUpdateSale} id="edit-sale-form" className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-2">
                       <label className="text-xs font-bold text-slate-500 uppercase">Fecha</label>
                       <input
@@ -916,7 +916,7 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
                     />
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-2">
                       <label className="text-xs font-bold text-slate-500 uppercase">Tipo de Documento</label>
                       <select
@@ -1100,15 +1100,15 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden"
             >
-              <div className="p-8 text-center">
-                <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Receipt className="h-10 w-10" />
+              <div className="p-4 md:p-8 text-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
+                  <Receipt className="h-8 w-8 md:h-10 md:w-10" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-2">
+                <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-2">
                   {lastSale?.type === SaleType.Presupuesto ? "Presupuesto Guardado" : "Venta Registrada"}
                 </h3>
-                <p className="text-slate-500 mb-8">
-                  El documento <span className="font-bold text-slate-700">#{lastSale?.id}</span> se ha guardado correctamente. <br/>
+                <p className="text-sm md:text-base text-slate-500 mb-6 md:mb-8">
+                  El documento <span className="font-bold text-slate-700">#{lastSale?.id}</span> se ha guardado correctamente. <br className="hidden md:block"/>
                   ¿Deseas realizar la <span className="text-emerald-600 font-bold">facturación electrónica al ARCA</span> ahora?
                 </p>
                 
@@ -1116,7 +1116,7 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
                   {lastSale?.type !== SaleType.Presupuesto && (
                     <button
                       onClick={() => handleArcaResponse(true)}
-                      className="w-full py-4 bg-emerald-500 text-white rounded-2xl font-bold hover:bg-emerald-600 shadow-lg shadow-emerald-500/30 transition-all flex items-center justify-center gap-2"
+                      className="w-full py-3 md:py-4 bg-emerald-500 text-white rounded-2xl font-bold hover:bg-emerald-600 shadow-lg shadow-emerald-500/30 transition-all flex items-center justify-center gap-2"
                     >
                       <CheckCircle className="h-5 w-5" />
                       Sí, Facturar al ARCA
@@ -1124,7 +1124,7 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
                   )}
                   <button
                     onClick={() => handlePrintReceipt()}
-                    className={`w-full py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 ${
+                    className={`w-full py-3 md:py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 ${
                       lastSale?.type === SaleType.Presupuesto 
                         ? "bg-emerald-500 text-white hover:bg-emerald-600 shadow-lg shadow-emerald-500/30" 
                         : "bg-white border-2 border-slate-200 text-slate-700 hover:bg-slate-50"
@@ -1135,7 +1135,7 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
                   </button>
                   <button
                     onClick={() => handleArcaResponse(false)}
-                    className="w-full py-4 bg-slate-100 text-slate-600 rounded-2xl font-bold hover:bg-slate-200 transition-all"
+                    className="w-full py-3 md:py-4 bg-slate-100 text-slate-600 rounded-2xl font-bold hover:bg-slate-200 transition-all"
                   >
                     {lastSale?.type === SaleType.Presupuesto ? "Cerrar" : "No por ahora"}
                   </button>
@@ -1159,10 +1159,10 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               className="bg-white rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[80vh]"
             >
-              <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+              <div className="p-4 md:p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50">
                 <div className="flex items-center gap-2">
                   <Clock className="text-emerald-500 h-5 w-5" />
-                  <h3 className="text-xl font-bold text-slate-800">Seleccionar Presupuesto</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-slate-800">Seleccionar Presupuesto</h3>
                 </div>
                 <button 
                   onClick={() => setShowLoadBudgetModal(false)}
@@ -1172,7 +1172,7 @@ export const Sales: React.FC<SalesProps> = ({ products }) => {
                 </button>
               </div>
               
-              <div className="flex-1 overflow-y-auto p-6">
+              <div className="flex-1 overflow-y-auto p-4 md:p-6">
                 <div className="space-y-3">
                   {sales.filter(s => s.status === SaleStatus.Pendiente).length === 0 ? (
                     <div className="text-center py-10 text-slate-400 italic">
